@@ -1,0 +1,5 @@
+type CarBrand {
+    id: ID!
+    brand_name: String!
+    year: Int!
+}
