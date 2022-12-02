@@ -3,3 +3,8 @@ type CarBrand {
     brand_name: String!
     year: Int!
 }
+
+input createCarBrand {
+    brand_name: String!
+    year: Int!
+}

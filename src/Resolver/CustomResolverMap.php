@@ -2,6 +2,7 @@
 
 namespace App\GraphQL\Resolver;
 
+use App\Service\MutationService;
 use App\Service\QueryService;
 use ArrayObject;
 use GraphQL\Type\Definition\ResolveInfo;
@@ -12,6 +13,7 @@ class CustomResolverMap extends ResolverMap
 {
     public function __construct(
         private QueryService    $queryService,
+        private MutationService $mutationService
     ) {}
 
     /**
@@ -34,7 +36,20 @@ class CustomResolverMap extends ResolverMap
                     };
                 },
             ],
-
+            'RootMutation' => [
+                self::RESOLVE_FIELD => function (
+                    $value,
+                    ArgumentInterface $args,
+                    ArrayObject $context,
+                    ResolveInfo $info
+                ) {
+                    return match ($info->fieldName) {
+                        'createCarBrand' => $this->mutationService->createCarBrand($args['carbrand']),
+                        default => null
+                    };
+                },
+        
+            ],
         ];
     }
 }
