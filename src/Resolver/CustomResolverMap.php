@@ -46,6 +46,7 @@ class CustomResolverMap extends ResolverMap
                     return match ($info->fieldName) {
                         'createCarBrand' => $this->mutationService->createCarBrand($args['carbrand']),
                         'updateCarBrand' => $this->mutationService->updateCarBrand((int)$args['id'], $args['carbrand']),
+                        'deleteCarBrand' => $this->mutationService->deleteCarBrand((int)$args['id']),
                         default => null
                     };
                 },

@@ -13,3 +13,7 @@ input updateCarBrand {
     brand_name: String!
     year: Int!
 }
+
+input deleteCarBrand {
+    id: ID!
+}

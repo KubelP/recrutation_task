@@ -37,5 +37,16 @@ class MutationService
         
         return $brandToUpdate;
     }
-}
- 
+
+    public function deleteCarBrand(int $carBrandId)
+    {   
+        $carBrandToRemove = $this->manager->getRepository(CarBrand::class)->find($carBrandId);
+        if (is_null($carBrandToRemove)) {
+            throw new Error("No car with this id: $carBrandId");
+        }
+        $this->manager->remove($carBrandToRemove);
+        $this->manager->flush();
+
+        return null;
+    }
+}   
