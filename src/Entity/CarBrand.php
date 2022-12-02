@@ -11,14 +11,21 @@ class CarBrand
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id;
 
     #[ORM\Column(length: 255)]
-    private ?string $brand_name = null;
+    private ?string $brand_name;
 
     #[ORM\Column]
-    private ?int $year = null;
-
+    private ?int $year;
+    
+    public function __construct(
+        string            $brand_name,
+        int               $year, 
+    ) {
+        $this->brand_name = $brand_name;
+        $this->year = $year;
+    }
     public function getId(): ?int
     {
         return $this->id;
