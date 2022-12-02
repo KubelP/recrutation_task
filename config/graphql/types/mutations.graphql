@@ -1,3 +1,4 @@
 type RootMutation {
     createCarBrand(carbrand: createCarBrand!): CarBrand!
+    updateCarBrand(id:ID!, carbrand: updateCarBrand!): CarBrand!
 }

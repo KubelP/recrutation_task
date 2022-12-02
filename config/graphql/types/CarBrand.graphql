@@ -8,3 +8,8 @@ input createCarBrand {
     brand_name: String!
     year: Int!
 }
+
+input updateCarBrand {
+    brand_name: String!
+    year: Int!
+}

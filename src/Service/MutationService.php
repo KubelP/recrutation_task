@@ -25,30 +25,17 @@ class MutationService
 
         return $carbrand;
     }
-}  
-//     public function updateCar(int $carId, array $carDetails): Car
-//     {
-//         $carToUpdate = $this->manager->getRepository(Car::class)->find($carId);
-//         $carToUpdate->setbrand($carDetails['brand']);
-//         $carToUpdate->setmodel($carDetails['model']);
-//         $carToUpdate->setyear($carDetails['year']);
-//         $carToUpdate->setcolor($carDetails['color']);
+  
+    public function updateCarBrand(int $carBrandId, array $carBrandDetails): CarBrand
+    {
+        $brandToUpdate = $this->manager->getRepository(CarBrand::class)->find($carBrandId);
+        $brandToUpdate->setbrandname($carBrandDetails['brand_name']);
+        $brandToUpdate->setyear($carBrandDetails['year']);
         
-//         $this->manager->persist($carToUpdate);
-//         $this->manager->flush();
+        $this->manager->persist($brandToUpdate);
+        $this->manager->flush();
         
-//         return $carToUpdate;
-//     }
-
-//     public function deleteCar(int $carId)
-//     {   
-//         $carToRemove = $this->manager->getRepository(Car::class)->find($carId);
-//         if (is_null($carToRemove)) {
-//             throw new Error("No car with this id: $carId");
-//         }
-//         $this->manager->remove($carToRemove);
-//         $this->manager->flush();
-
-//         return null;
-//     }
-// }   
+        return $brandToUpdate;
+    }
+}
+ 
