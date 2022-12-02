@@ -18,7 +18,8 @@ class CarBrand
 
     #[ORM\Column]
     private ?int $year;
-    
+
+    #for creating instances by adding arguments
     public function __construct(
         string            $brand_name,
         int               $year, 
