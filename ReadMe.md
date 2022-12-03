@@ -17,57 +17,58 @@ Api can create, read, update and delete data from database. Database has three f
 - id - prmiary key - intiger<br>
 - brand_name - name of the car brand - string<br>
 - year - year of established of car brand - intiger<br>
+<br>
 All fields are non-nullabel.<br>
 Api can be tested by GraphiQL localy http://127.0.0.1:8000/graphiql<br>
 <br>
 Querys and mutations for graphql:<br>
-
+<br>
 - query for single car brand:<br>
 query RootQuery {<br>
-   carbrand(id:1) {<br>
-     brand_name<br>
-     year<br>
-   }<br>
+&emsp; &emsp; &emsp; &emsp; carbrand(id:1) {<br>
+&emsp; &emsp; &emsp; &emsp; &emsp; brand_name<br>
+&emsp; &emsp; &emsp; &emsp; &emsp; year<br>
+&emsp; &emsp; &emsp;}<br>
 <br>
 - query for all car brands:<br>
 query RootQuery<br>
-   carbrands {<br>
-     id<br>
-     brand_name<br>
-     year<br>
-   }<br>
+&emsp; &emsp; &emsp; &emsp; carbrands {<br>
+&emsp; &emsp; &emsp; &emsp; &emsp; id<br>
+&emsp; &emsp; &emsp; &emsp; &emsp; brand_name<br>
+&emsp; &emsp; &emsp; &emsp; &emsp; year<br>
+&emsp; &emsp; &emsp;}<br>
 }<br>
 <br>
 - mutation for create car brand:<br>
 mutation RootMutation {<br>
- 	createCarBrand(carbrand: {<br>
-     brand_name:"Maserati"<br>
-     year:1914<br>
-   }) {<br>
- 	  id<br>
-     brand_name<br>
-     year<br>
- 	}<br>
+&emsp; &emsp; &emsp; &emsp; &emsp;createCarBrand(carbrand: {<br>
+&emsp; &emsp; &emsp; &emsp; &emsp;brand_name:"Maserati"<br>
+&emsp; &emsp; &emsp; &emsp; &emsp;year:1914<br>
+&emsp; &emsp; &emsp;}) {<br>
+&emsp; &emsp; &emsp; &emsp; &emsp;id<br>
+&emsp; &emsp; &emsp; &emsp; &emsp;brand_name<br>
+&emsp; &emsp; &emsp; &emsp; &emsp;year<br>
+&emsp; &emsp; &emsp;}<br>
 }<br>
 <br>
 - mutation for update car brand:<br>
 mutation RootMutation {<br>
-	updateCarBrand(id:2, carbrand: {<br>
-    brand_name:"Bentley"<br>
-    year: 1919<br>
-  }) {<br>
-	  id<br>
-    brand_name<br>
-    year<br>
-	}<br>
+&emsp; &emsp; &emsp; &emsp; &emsp; updateCarBrand(id:2, carbrand: {<br>
+&emsp; &emsp; &emsp; &emsp; &emsp; brand_name:"Bentley"<br>
+&emsp; &emsp; &emsp; &emsp; &emsp; year: 1919<br>
+&emsp; &emsp; &emsp;}) {<br>
+&emsp; &emsp; &emsp; &emsp; &emsp; id<br>
+&emsp; &emsp; &emsp; &emsp; &emsp; brand_name<br>
+&emsp; &emsp; &emsp; &emsp; &emsp; year<br>
+&emsp; &emsp; &emsp;}<br>
 }<br>
 <br>
 -mutation for delete car brand:<br>
 mutation RootMutation {<br>
- 	deleteCarBrand(id:2) {<br>
- 	  id<br>
- 	}<br>
- }<br>
+&emsp; &emsp; &emsp; &emsp; deleteCarBrand(id:2) {<br>
+&emsp; &emsp; &emsp; &emsp; &emsp; id<br>
+&emsp; &emsp; &emsp;}<br>
+}<br>
 <br>
 Graphql files are in directory config/graphql/types<br>
 Resolver php file in directory src/Resolver<br>
