@@ -13,18 +13,17 @@ class CarBrand
     #[ORM\Column]
     private ?int $id;
 
-    #[ORM\Column(length: 255)]
-    private ?string $brand_name;
+    #[ORM\Column(length: 40)]
+    private ?string $brandname;
 
     #[ORM\Column]
     private ?int $year;
 
-    #for creating instances by adding arguments
     public function __construct(
-        string            $brand_name,
+        string            $brandname,
         int               $year, 
     ) {
-        $this->brand_name = $brand_name;
+        $this->brandname = $brandname;
         $this->year = $year;
     }
     public function getId(): ?int
@@ -34,12 +33,12 @@ class CarBrand
 
     public function getBrandName(): ?string
     {
-        return $this->brand_name;
+        return $this->brandname;
     }
 
-    public function setBrandName(string $brand_name): self
+    public function setBrandName(string $brandname): self
     {
-        $this->brand_name = $brand_name;
+        $this->brandname = $brandname;
 
         return $this;
     }
