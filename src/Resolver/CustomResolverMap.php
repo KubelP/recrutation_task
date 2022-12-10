@@ -9,17 +9,8 @@ use GraphQL\Type\Definition\ResolveInfo;
 use Overblog\GraphQLBundle\Definition\ArgumentInterface;
 use Overblog\GraphQLBundle\Resolver\ResolverMap;
 
-/* CustomMapResolver supports query and mutation:
-   querys:
-   - findCarBrand - for one object looked by ID
-   - getAllCarBrands - for all object in db
-   mutations:
-   - createCarBrand - creating new object and saves in db
-   - updateCarBrand - updateing object that exists in db
-   - deleteCarBrand - delating object from db
-*/
 
-class CustomResolverMap extends ResolverMap 
+class CustomResolverMap extends ResolverMap
 {
     public function __construct(
         private QueryService    $queryService,
@@ -29,7 +20,7 @@ class CustomResolverMap extends ResolverMap
     /**
      * @inheritDoc
      */
-    protected function map(): array 
+    protected function map(): array
     {
         return [
             'RootQuery'    => [
