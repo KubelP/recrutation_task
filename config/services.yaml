@@ -20,7 +20,7 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
             
-    App\GraphQL\Resolver\CustomResolverMap:
+    App\Resolver\CustomResolverMap:
         tags:
             - { name: overblog_graphql.resolver_map, schema: default }
     # add more service definitions when explicit configuration is needed
