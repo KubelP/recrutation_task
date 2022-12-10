@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GraphQL\Resolver;
+namespace App\Resolver;
 
 use App\Service\MutationService;
 use App\Service\QueryService;
