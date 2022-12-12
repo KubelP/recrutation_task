@@ -31,7 +31,7 @@ class CustomResolverMap extends ResolverMap
                     ResolveInfo $info
                 ) {
                     return match ($info->fieldName) {
-                        'carbrand' => $this->queryService->findCarBrand((int)$args['id']),
+                        'carbrand' => $this->queryService->findCarBrand($args['id']),
                         'carbrands' => $this->queryService->getAllCarBrands(),
                         default => null
                     };
@@ -46,12 +46,12 @@ class CustomResolverMap extends ResolverMap
                 ) {
                     return match ($info->fieldName) {
                         'createCarBrand' => $this->mutationService->createCarBrand($args['carbrand']),
-                        'updateCarBrand' => $this->mutationService->updateCarBrand((int)$args['id'], $args['carbrand']),
-                        'deleteCarBrand' => $this->mutationService->deleteCarBrand((int)$args['id']),
+                        'updateCarBrand' => $this->mutationService->updateCarBrand($args['id'], $args['carbrand']),
+                        'deleteCarBrand' => $this->mutationService->deleteCarBrand($args['id']),
                         default => null
                     };
                 },
-        
+
             ],
         ];
     }

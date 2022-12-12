@@ -25,7 +25,7 @@ class MutationService
         return $carbrand;
     }
 
-    public function updateCarBrand(int $carBrandId, array $carBrandDetails): CarBrand
+    public function updateCarBrand($carBrandId, array $carBrandDetails): CarBrand
     {
         $brandToUpdate = $this->manager->getRepository(CarBrand::class)->find($carBrandId);
 
@@ -41,7 +41,7 @@ class MutationService
         return $brandToUpdate;
     }
 
-    public function deleteCarBrand(int $carBrandId)
+    public function deleteCarBrand($carBrandId)
     {
         $carBrandToRemove = $this->manager->getRepository(CarBrand::class)->find($carBrandId);
 

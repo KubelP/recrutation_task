@@ -13,7 +13,7 @@ class QueryService
         private CarBrandRepository $CarBrandRepository,
     ) {}
 
-    public function findCarBrand(int $carBrandId): ?CarBrand
+    public function findCarBrand($carBrandId): ?CarBrand
     {
         $brand = $this->CarBrandRepository->find($carBrandId);
 
