@@ -37,7 +37,7 @@ After installation of neccesery packeges in .env file, configure your database b
 Than create database:
 
 ```bash
-$ php bin/console doctrine:create:database
+$ php bin/console doctrine:database:create
 ```
 
 >That will create database with CarBrand name - it can be change in DATABASE_URL.
@@ -72,11 +72,15 @@ Open browser and go to ht<span>tp://127.0.0.1:8000/graphiql.
 
 Api can create, read, update and delete data from database.  
 It has three fields:
-- id - prmiary key - intiger
+- id - prmiary key - intiger or string
 - brandname - name of the car brand - string
 - year - year of established of car brand - intiger
 
 All fields are non-nullable.
+
+## Endpoint
+
+ht<span>tp://127.0.0.1:8000/
 
 ## Important files
 
