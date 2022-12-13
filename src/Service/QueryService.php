@@ -28,6 +28,4 @@ class QueryService
     {
         return $this->CarBrandRepository->findAll();
     }
-
-
-    }
+}
