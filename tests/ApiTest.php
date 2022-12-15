@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ApiTest extends WebTestCase
 {
-    public function testQMutationCreate(): void
+    public function testMutationCreate(): void
     {
         $query = <<<'EOF'
         mutation RootMutation {
             createCarBrand(carbrand: {
-            brand_name:"Mazda"
-            year:1920
+            brand_name:"Mercedes"
+            year:1928
             }) {
             brand_name
             year
@@ -20,7 +20,7 @@ class ApiTest extends WebTestCase
         }
         EOF;
 
-        $jsonExpected = '{"data":{"createCarBrand":{"brand_name":"Mazda","year":1920}}}';
+        $jsonExpected = '{"data":{"createCarBrand":{"brand_name":"Mercedes","year":1928}}}';
         $response = static::createClient();
         $response->request('GET', '/', ['query' => $query], []);
         $result = $response->getResponse()->getContent();
@@ -45,6 +45,46 @@ class ApiTest extends WebTestCase
         $result = $response->getResponse()->getContent();
         $this->assertResponseIsSuccessful();
         $this->assertEquals(json_decode($jsonExpected, true), json_decode($result, true), $result);
+    }
+
+    public function testMutationUpdate(): void
+    {
+        $query = <<<'EOF'
+        mutation RootMutation {
+            updateCarBrand(id:1, carbrand: {
+            brand_name:"Mazda"
+            year:1920
+            }) {
+            brand_name
+            year
+            }
+        }
+        EOF;
+
+        $jsonExpected = '{"data":{"updateCarBrand":{"brand_name":"Mazda","year":1920}}}';
+        $response = static::createClient();
+        $response->request('GET', '/', ['query' => $query], []);
+        $result = $response->getResponse()->getContent();
+        $this->assertResponseIsSuccessful();
+        $this->assertEquals(json_decode($jsonExpected, true), json_decode($result, true), $result);
+    }
+
+    public function testMutationDelete(): void
+    {
+        $query = <<<'EOF'
+        mutation RootMutation {
+            deleteCarBrand(id:1) {
+            id
+            }
+        }
+        EOF;
+
+        $Expected = '{"data":{"deleteCarBrand":null}}';
+        $response = static::createClient();
+        $response->request('GET', '/', ['query' => $query], []);
+        $result = $response->getResponse()->getContent();
+        $this->assertResponseIsSuccessful();
+        $this->assertEquals(json_decode($Expected, true), json_decode($result, true), $result);
     }
 
     public function testQueryByWrongId(): void
