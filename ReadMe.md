@@ -32,7 +32,7 @@ $ composer install
 
 After installation of neccesery packeges in .env file, configure your database by adding login, password and access route to MySQL. 
 
-        DATABASE_URL="mysql://LOGIN:PASSWORD@accesroute/CarBrand?serverVersion=8.0.31&charset=utf8mb4"
+        DATABASE_URL="mysql://LOGIN:PASSWORD@accesroute/car_brand?serverVersion=8.0.31&charset=utf8mb4"
 
 Than create database:
 
@@ -40,7 +40,7 @@ Than create database:
 $ php bin/console doctrine:database:create
 ```
 
->That will create database with CarBrand name - it can be change in DATABASE_URL.
+>That will create database with car_brand name - it can be change in DATABASE_URL.
 
 Create migration:
 
@@ -81,6 +81,36 @@ All fields are non-nullable.
 ## Endpoint
 
 ht<span>tp://127.0.0.1:8000/
+
+## Tests enviroment
+
+For run tests after installation of thiss app set in .env (or .env.local if use) file:
+
+        APP_ENV=test
+
+Then set your database credentials in.env.test. Default tested database name is car_brand_test.
+
+Create database:
+
+```bash
+$ php bin/console --env=test doctrine:database:create
+```
+
+And make migration:
+
+```bash
+$ php bin/console --env=test doctrine:schema:create
+```
+
+For above it is important to be in test env mode. 
+
+Run test by typing in concole:
+
+```bash
+$ bin/phpunit
+```
+
+For run tests again due to auto increment of primary key (id) in database, it is necessary to create new database or set auto increment to 1.
 
 ## Important files
 
