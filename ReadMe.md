@@ -84,11 +84,11 @@ ht<span>tp://127.0.0.1:8000/
 
 ## Tests enviroment
 
-For run tests after installation of thiss app set in .env (or .env.local if use) file:
+For run tests after installation of this app, set in .env (or .env.local if use) file test enviroment:
 
         APP_ENV=test
 
-Then set your database credentials in.env.test. Default tested database name is car_brand_test.
+Then set your database credentials in .env.test. Default tested database name is car_brand_test.
 
 Create database:
 
