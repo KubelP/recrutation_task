@@ -19,7 +19,8 @@ For installation go to your directory and clone repository:
 $ git clone https://github.com/KubelP/recrutation_task.git
 ```
 
-Go to directory recrutation_task: 
+Go to directory recrutation_task:
+
 ```bash
 $ cd recrutation_task
 ```
