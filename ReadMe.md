@@ -68,7 +68,7 @@ Run server:
 $ symfony server:start
 ```
 
-Open browser and go to ht<span>tp://127.0.0.1:8000/graphiql.
+Open browser and go to `http://127.0.0.1:8000/graphiql`.
 
 Api can create, read, update and delete data from database.  
 It has three fields:
@@ -78,9 +78,13 @@ It has three fields:
 
 All fields are non-nullable.
 
-## Endpoint
+## Endpoints
 
-ht<span>tp://127.0.0.1:8000/
+`http://127.0.0.1:8000/`
+
+`http://127.0.0.1:8000/graphiql`
+
+Graphiql endpoint is aviable only in dev mode.
 
 ## Tests enviroment
 
