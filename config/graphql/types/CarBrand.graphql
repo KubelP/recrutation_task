@@ -1,16 +1,16 @@
 type CarBrand {
     id: ID!
-    brandName: String!
+    brand_name: String!
     year: Int!
 }
 
 input createCarBrand {
-    brandName: String!
+    brand_name: String!
     year: Int!
 }
 
 input updateCarBrand {
-    brandName: String!
+    brand_name: String!
     year: Int!
 }
 
