@@ -14,15 +14,15 @@ class MutationService
 
     public function createCarBrand(array $carBrandDetails): CarBrand
     {
-        $carbrand = new CarBrand(
+        $carBrand = new CarBrand(
             $carBrandDetails['brand_name'],
             $carBrandDetails['year'],
         );
 
-        $this->manager->persist($carbrand);
+        $this->manager->persist($carBrand);
         $this->manager->flush();
 
-        return $carbrand;
+        return $carBrand;
     }
 
     public function updateCarBrand($carBrandId, array $carBrandDetails): CarBrand
