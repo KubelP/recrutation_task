@@ -21,9 +21,9 @@ class ApiTest extends WebTestCase
         EOF;
 
         $jsonExpected = '{"data":{"createCarBrand":{"brand_name":"Mercedes","year":1928}}}';
-        $response = static::createClient();
-        $response->request('GET', '/', ['query' => $query], []);
-        $result = $response->getResponse()->getContent();
+        $client = static::createClient();
+        $client->request('GET', '/', ['query' => $query], []);
+        $result = $client->getResponse()->getContent();
         $this->assertResponseIsSuccessful();
         $this->assertEquals(json_decode($jsonExpected, true), json_decode($result, true), $result);
     }
@@ -40,9 +40,9 @@ class ApiTest extends WebTestCase
         EOF;
     
         $jsonExpected = '{"data":{"carbrand":{"brand_name":"Mercedes","year":1928}}}';
-        $response = static::createClient();
-        $response->request('GET', '/', ['query' => $query], []);
-        $result = $response->getResponse()->getContent();
+        $client = static::createClient();
+        $client->request('GET', '/', ['query' => $query], []);
+        $result = $client->getResponse()->getContent();
         $this->assertResponseIsSuccessful();
         $this->assertEquals(json_decode($jsonExpected, true), json_decode($result, true), $result);
     }
@@ -62,9 +62,9 @@ class ApiTest extends WebTestCase
         EOF;
 
         $jsonExpected = '{"data":{"updateCarBrand":{"brand_name":"Mazda","year":1920}}}';
-        $response = static::createClient();
-        $response->request('GET', '/', ['query' => $query], []);
-        $result = $response->getResponse()->getContent();
+        $client = static::createClient();
+        $client->request('GET', '/', ['query' => $query], []);
+        $result = $client->getResponse()->getContent();
         $this->assertResponseIsSuccessful();
         $this->assertEquals(json_decode($jsonExpected, true), json_decode($result, true), $result);
     }
@@ -79,12 +79,12 @@ class ApiTest extends WebTestCase
         }
         EOF;
 
-        $Expected = '{"data":{"deleteCarBrand":null}}';
-        $response = static::createClient();
-        $response->request('GET', '/', ['query' => $query], []);
-        $result = $response->getResponse()->getContent();
+        $expected = '{"data":{"deleteCarBrand":null}}';
+        $client = static::createClient();
+        $client->request('GET', '/', ['query' => $query], []);
+        $result = $client->getResponse()->getContent();
         $this->assertResponseIsSuccessful();
-        $this->assertEquals(json_decode($Expected, true), json_decode($result, true), $result);
+        $this->assertEquals(json_decode($expected, true), json_decode($result, true), $result);
     }
 
     public function testQueryByWrongId(): void
@@ -99,9 +99,9 @@ class ApiTest extends WebTestCase
         EOF;
 
         $jsonExpected = '{"errors":[{"message":"No car with this id: asds"}]}';
-        $response = static::createClient();
-        $response->request('GET', '/', ['query' => $query], []);
-        $result = $response->getResponse()->getContent();
+        $client = static::createClient();
+        $client->request('GET', '/', ['query' => $query], []);
+        $result = $client->getResponse()->getContent();
         $this->assertResponseIsSuccessful();
         $this->assertEquals(json_decode($jsonExpected, true)['errors'][0]['message'], json_decode($result, true)['errors'][0]['message'], $result);
     }
