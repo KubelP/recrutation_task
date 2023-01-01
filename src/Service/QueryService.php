@@ -4,7 +4,7 @@ namespace App\Service;
 
 use App\Entity\CarBrand;
 use App\Repository\CarBrandRepository;
-use GraphQL\Error\Error;
+use App\Exceptions\CarBrandWrongIdException;
 
 
 class QueryService
@@ -18,7 +18,7 @@ class QueryService
         $brand = $this->CarBrandRepository->find($carBrandId);
 
         if (is_null($brand)) {
-            throw new Error("No car with this id: $carBrandId");
+            throw new CarBrandWrongIdException("No car with this id: $carBrandId");
         }
 
         return $brand;

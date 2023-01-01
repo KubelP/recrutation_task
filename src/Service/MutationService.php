@@ -4,7 +4,7 @@ namespace App\Service;
 
 use App\Entity\CarBrand;
 use Doctrine\ORM\EntityManagerInterface;
-use GraphQL\Error\Error;
+use App\Exceptions\CarBrandWrongIdException;
 
 class MutationService
 {
@@ -30,7 +30,7 @@ class MutationService
         $brandToUpdate = $this->manager->getRepository(CarBrand::class)->find($carBrandId);
 
         if (is_null($brandToUpdate)) {
-            throw new Error("No car with this id: $carBrandId");
+            throw new CarBrandWrongIdException("No car with this id: $carBrandId");
         }
         $brandToUpdate->setBrandName($carBrandDetails['brand_name']);
         $brandToUpdate->setYear($carBrandDetails['year']);
@@ -46,7 +46,7 @@ class MutationService
         $carBrandToRemove = $this->manager->getRepository(CarBrand::class)->find($carBrandId);
 
         if (is_null($carBrandToRemove)) {
-            throw new Error("No car with this id: $carBrandId");
+            throw new CarBrandWrongIdException("No car with this id: $carBrandId");
         }
         $this->manager->remove($carBrandToRemove);
         $this->manager->flush();
